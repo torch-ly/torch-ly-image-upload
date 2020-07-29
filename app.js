@@ -1,13 +1,17 @@
 import express from "express";
 import fileUpload from "express-fileupload";
 import randomString from "random-base64-string";
+import https from "https";
 import fs from "fs";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 let app = express();
 
-const storagePath = "./uploads/";
-const stringLength = 8;
-const cacheTtl = 1000 * 60 * 60 * 24 * 365;
+const storagePath = process.env.STORAGE_PATH;
+const stringLength = process.env.STRING_LENGTH;
+const cacheTtl = process.env.CACHT_TTL;
 
 app.use("/u", express.static(storagePath, {maxAge: cacheTtl}));
 app.use(fileUpload());
@@ -48,4 +52,7 @@ app.post("/upload", async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("Image Server now listening on port 3000"));
+https.createServer({
+    key: fs.readFileSync(process.env.HTTPS_KEY_PATH),
+    cert: fs.readFileSync(process.env.HTTPS_CERT_PATH)
+}, app).listen(process.env.PORT, () => console.log("Image Server now listening on port " + process.env.PORT));

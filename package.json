@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r esm -e mjs,js,graphql"
+    "start": "nodemon -r esm -e mjs,js,graphql,env"
   },
   "dependencies": {
     "esm": "^3.2.25",
@@ -12,5 +12,8 @@
     "express-fileupload": "^1.1.7-alpha.4",
     "nodemon": "^2.0.4",
     "random-base64-string": "^1.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
