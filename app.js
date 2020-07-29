@@ -13,7 +13,7 @@ startRedirectServer();
 let app = express();
 
 const storagePath = process.env.STORAGE_PATH;
-const stringLength = process.env.STRING_LENGTH;
+const stringLength = parseInt(process.env.STRING_LENGTH);
 const cacheTtl = process.env.CACHT_TTL;
 
 app.use("/u", express.static(storagePath, {maxAge: cacheTtl}));
