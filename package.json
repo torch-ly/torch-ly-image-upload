@@ -1,0 +1,16 @@
+{
+  "name": "torch-ly-image-upload",
+  "author": "EricHier",
+  "version": "0.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r esm -e mjs,js,graphql"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.1.7-alpha.4",
+    "nodemon": "^2.0.4",
+    "random-base64-string": "^1.0.1"
+  }
+}
