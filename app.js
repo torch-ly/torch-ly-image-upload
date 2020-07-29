@@ -4,11 +4,8 @@ import randomString from "random-base64-string";
 import https from "https";
 import fs from "fs";
 import dotenv from "dotenv";
-import {startRedirectServer} from "./https-redirect";
 
 dotenv.config();
-
-startRedirectServer();
 
 let app = express();
 
@@ -59,4 +56,4 @@ app.post("/upload", async (req, res) => {
 https.createServer({
     key: fs.readFileSync(process.env.HTTPS_KEY_PATH),
     cert: fs.readFileSync(process.env.HTTPS_CERT_PATH)
-}, app).listen(process.env.HTTPS_PORT, () => console.log("Image Server now listening on port " + process.env.PORT));
+}, app).listen(process.env.PORT, () => console.log("Image Server now listening on port " + process.env.PORT));
