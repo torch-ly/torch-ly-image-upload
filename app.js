@@ -51,6 +51,7 @@ app.post("/upload", async (req, res) => {
 
         res.send("/u/" + path);
     } catch (err) {
+        console.error(err);
         res.status(500).send(err);
     }
 });
