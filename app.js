@@ -58,4 +58,7 @@ app.post("/upload", async (req, res) => {
     }
 });
 
-http.createServer(app).listen(process.env.PORT, () => console.log("Image Server now listening on port " + process.env.PORT));
+https.createServer({
+    key: fs.readFileSync(process.env.HTTPS_KEY_PATH),
+    cert: fs.readFileSync(process.env.HTTPS_CERT_PATH)
+}, app).listen(process.env.PORT, () => console.log("Image Server now listening on port " + process.env.PORT));
