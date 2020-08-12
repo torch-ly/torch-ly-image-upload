@@ -2,5 +2,5 @@
 /uploads/
 /.idea/
 /.env
-/server.cert
-/server.key
+/certificate/cert.pem
+/certificate/privkey.pem
